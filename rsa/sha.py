@@ -1,4 +1,3 @@
-
 class SHA:
     BASE = 0xffffffff
     F = {
@@ -43,12 +42,12 @@ class SHA:
                    + bytes([0x80] + [0] * (55-remainder))
                    + big_endian_length)
 
-    def hash(self, message):
+    def hash(self, message: str):
         """
-        Calculate hash function SHA-1.
+        Calculate hash function SHA-1 for message.
 
         :param message: text for hashing
-        :returns: SHA-1 hash (160-bit)
+        :return: SHA-1 hash (160-bit)
         """
         h0 = 0x67452301
         h1 = 0xEFCDAB89
