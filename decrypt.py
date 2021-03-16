@@ -26,14 +26,16 @@ if __name__ == '__main__':
         e = int(e)
     rsa = RSA(n)
 
+    print(n)
+    print(e)
+
     with open(options.document) as f:
         message = f.read()
     message_hash = SHA().hash(message)
+
 
     with open(options.signature) as f:
         if message_hash == rsa.decrypt(int(f.read()), e):
             print('Authentication succeeded')
         else:
             print('Authentication failed')
-
-    

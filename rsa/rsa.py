@@ -10,19 +10,19 @@ class RSA:
     def get_private_key(self, e, p, q):
         def gcd_params(a, b):
             if a == 0:
-                return 0, 1
-            x, y = gcd_params(b % a, a)
-            return y - (b // a) * x, x
+                return b, 0, 1
+            gcd, x, y = gcd_params(b % a, a)
+            return gcd, y - (b // a) * x, x
 
-        x, _ = gcd_params(e, (p-1) * (q-1))
-        return x
+        _, x, _ = gcd_params(e, (p-1) * (q-1))
+        return max(x, (p-1) * (q-1) + x)
 
-    def _pow(self, m, e, *, mod):
-        if e == 0:
+    def _pow(self, a, n, *, mod):
+        if n == 0:
             return 1 
-        if e & 0b1:
-            return m * self._pow(m, e - 1, mod=mod) % mod
-        tmp = self._pow(m, e // 2, mod=mod)
+        if n & 0b1:
+            return self._pow(a, n - 1, mod=mod) * a % mod
+        tmp = self._pow(a, n // 2, mod=mod)
         return (tmp * tmp) % mod
 
     def encrypt(self, message_hash: int, e: int):

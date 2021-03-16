@@ -28,6 +28,7 @@ if __name__ == '__main__':
     with open(options.document) as f:
         message = f.read()
     message_hash = SHA().hash(message)
+
     signature = rsa.encrypt(message_hash, d)
 
     with open('public.key', 'w') as f:
