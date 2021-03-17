@@ -27,9 +27,9 @@ class RSA:
 
     def encrypt(self, message_hash: int, e: int):
         """
-        Encrypt message with RSA algorithm with (e, n) public key.
+        Encrypt numbeer with RSA algorithm with (e, n) public key.
 
-        :param message: message hash for encrypting
+        :param message: number for encrypting
         :param e: first part of public key
         :return: encrypted number
         """
@@ -37,9 +37,9 @@ class RSA:
 
     def decrypt(self, code: int, d: int):
         """
-        Decrypt message with RSA algorithm with (d) private key.
+        Decrypt number with RSA algorithm with (d) private key.
 
-        :param code: encrypted number
+        :param code: number for decrypting
         :param d: private key
         :return: decrypted number
         """

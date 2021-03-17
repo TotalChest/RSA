@@ -7,7 +7,7 @@ from rsa.sha import SHA
 
 def init_options():
     arg_parser = argparse.ArgumentParser(description="""
-        Check electronic signature of a document.
+        Check the digital signature of a document (RSA).
     """)
     arg_parser.add_argument('document', type=Path,
                             help='Path to the document')
@@ -26,16 +26,12 @@ if __name__ == '__main__':
         e = int(e)
     rsa = RSA(n)
 
-    print(n)
-    print(e)
-
     with open(options.document) as f:
         message = f.read()
     message_hash = SHA().hash(message)
 
-
     with open(options.signature) as f:
         if message_hash == rsa.decrypt(int(f.read()), e):
-            print('Authentication succeeded')
+            print('Success! Document is genuine.')
         else:
-            print('Authentication failed')
+            print('Fail! Document is not genuine.')

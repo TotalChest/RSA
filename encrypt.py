@@ -8,7 +8,7 @@ from rsa.prime import Prime
 
 def init_options():
     arg_parser = argparse.ArgumentParser(description="""
-        Sign a document with an electronic signature.
+        Sign a document with the digital signature (RSA).
     """)
     arg_parser.add_argument('document', type=Path,
                             help='Path to the document')

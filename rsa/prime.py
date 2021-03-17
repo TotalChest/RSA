@@ -45,7 +45,7 @@ class Prime:
     def RabinMillerWitness(self, witness, possible):
         """
         Return True if possible may be prime.
-        Return False if if is composite.
+        Return False if it is composite.
         """
         return self._pow_test(witness, possible - 1, mod=possible)
 
