@@ -22,8 +22,8 @@ class Prime:
         if e == 0:
             return 1 
         if e & 0b1:
-            return m * pow(m, e - 1, mod=mod) % mod
-        tmp = pow(m, e // 2, mod=mod)
+            return m * self._pow(m, e - 1, mod=mod) % mod
+        tmp = self._pow(m, e // 2, mod=mod)
         return (tmp * tmp) % mod
 
     def _pow_test(self, a, b, *, mod):
