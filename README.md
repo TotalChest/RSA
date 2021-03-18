@@ -19,5 +19,5 @@ The output will be a document signature and a public decryption key
 python decrypt.py --key public.key <document> <signature>
 ```
 
-If everything is ok, the output is 'Success! Document is genuine.' else output is 'Fail! Document is not genuine.'
+If everything is ok, the output is `Success! Document is genuine.` else the output is `Fail! Document is not genuine.`
 
